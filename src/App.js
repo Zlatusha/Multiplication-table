@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Table from './components/Table'
 import './App.css';
 
-const multiply = (n) => {
-  const result = {};
-  for (let i = 1; i <= n; i++) {
-    result[i] = {};
-    for (let j = 1; j <= n; j++) {
-      result[i][j] = i * j
+const App = () => {
+
+
+
+const buildMultuTable = (n) => {
+  const result = [];
+  for (let i = 0; i < n; i++) {
+    result[i] = [];
+    for (let j = 0; j < n; j++) {
+      result[i][j] = (i+1) * (j+1)
     }
   }
-  console.table(result)
+  return result
 }
+const [mulTab, setMulTab] = useState(buildMultuTable(10))
 
-multiply(20);
 
-function App() {
   return (
     <div className="App">
-     <Table />
+      <Table mulTab={mulTab}/>
+
     </div>
   );
 }

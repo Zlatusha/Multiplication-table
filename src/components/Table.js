@@ -1,12 +1,11 @@
 import React from 'react';
 import TableItem from './TableItem'
 
-const Table = () => {
+const Table = ({ mulTab }) => {
   return (
-    <table>
-       <caption>Multiplication table</caption>
-
-     </table>
+    <div>
+      {mulTab.map((row) => <div>{row.map((item) => <div>{item}</div>)}</div>)}
+    </div>
   )
 }
 

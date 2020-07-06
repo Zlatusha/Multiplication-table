@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TableItem = () => {
+const TableItem = ({item}) => {
   return (
     <div>
       
