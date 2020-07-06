@@ -1,8 +1,7 @@
-
-td{
+td {
   border: 1px solid rgb(190, 190, 190);
-    padding: 7px 5px;
-    text-align: center;
+  padding: 10px;
+  text-align: center;
 }
 table {
   border-collapse: collapse;
@@ -15,4 +14,12 @@ table {
 caption {
   padding: 10px;
   caption-side: bottom;
+}
+
+.table-item {
+  background-color: #c4d7d1;
+}
+
+.light-hover {
+  background-color: #5f9595;
 }

@@ -1,30 +1,40 @@
-import React from 'react';
-import TableItem from './TableItem'
+import React, { useState } from 'react';
 
+const Table = ({ table }) => {
 
-const Table = ({ mulTab }) => {
+  const [activeColumn, setActiveColumn] = useState();
+  const [activeRow, setActiveRow] = useState();
+
+  const lightLines = (row, column) => {
+    setActiveColumn(column)
+    setActiveRow(row)
+  }
+
+  const light = (row, column) => {
+    const lightHover = 'light-hover';
+    const defaultItem = 'table-item'
+    if (column === activeColumn || row === activeRow) {
+      return lightHover;
+    }
+    return defaultItem
+  }
+
   return (
-    // <div className="multi-head">
-    //   {mulTab.map((row) =>
-    //     <div className="multi-section">
-    //       {row.map((item) =>
-    //         <div className="multi-item">{item}</div>)}
-    //     </div>)}
-    // </div>
-
-
     <table>
-      
       <caption>Multiplication tables</caption>
       <tbody>
-      {mulTab.map((row, i) =>
-        <tr key={i}>
-          {row.map((item) =>
-            <td key={`${i}_${item}`}>{item}</td>)}
-        </tr>)}
-        </tbody>
+        {table.map((row, i) =>
+          <tr key={i}>
+            {row.map((item, n) =>
+              <td
+                key={`${i}_${item}`}
+                onMouseEnter={() => { lightLines(i, n) }}
+                className={light(i, n)}>
+                {item}
+              </td>)}
+          </tr>)}
+      </tbody>
     </table>
-
   )
 }
 
